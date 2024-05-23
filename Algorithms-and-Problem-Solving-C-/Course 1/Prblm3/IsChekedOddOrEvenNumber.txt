@@ -1,0 +1,43 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+// create 3 function 
+
+// function 1 read the number
+
+int ReadNumber() {
+    int number;
+    cout<< "Enter your number : ";
+    cin >> number;
+    return number;
+}
+
+// function 2 check this number is odd or even 
+
+bool IsOddOrEven(int number) {
+    if (number % 2 == 0)
+    {
+        return true;
+    }
+    return false;
+}
+
+// function 3 print this result in at screen
+string PrintResult(bool IsOddOrEven) {
+    if (IsOddOrEven)
+    {
+        return "This number is Odd ! ";
+    }
+    return "This number is Even ! ";
+}
+
+// main 
+
+int main(){
+    int number;
+    cout<<endl<<PrintResult(IsOddOrEven(ReadNumber()))<<endl;
+    return 0;
+}
+
