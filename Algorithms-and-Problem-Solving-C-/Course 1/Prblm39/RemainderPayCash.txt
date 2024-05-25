@@ -1,0 +1,39 @@
+
+#include <iostream>
+#include <string>
+using namespace std;
+// create struct
+struct stRmainder {
+    double TotalBill;
+    double CashPaid;
+};
+// create all functions
+stRmainder ReadNumber() {
+    stRmainder Remainder;
+    cout << endl << " Total Bill : ";
+    cin >> Remainder.TotalBill;
+    cout << endl;
+    cout << endl << " Cash Paid : ";
+    cin >> Remainder.CashPaid;
+    cout << endl;
+    return Remainder;
+}
+
+// create function IsRemainder
+double IsRemainder(stRmainder Remainder) {
+    return Remainder.CashPaid - Remainder.TotalBill;
+}
+// create function PrintRemainder
+void PrintRemainder(double rem) {
+    cout << endl << "The Remainder is : " << rem << endl;
+}
+// main
+int main()
+{
+    // declared all varriables
+    
+    // call all functions 
+    PrintRemainder(IsRemainder(ReadNumber()));
+    return 0;
+}
+

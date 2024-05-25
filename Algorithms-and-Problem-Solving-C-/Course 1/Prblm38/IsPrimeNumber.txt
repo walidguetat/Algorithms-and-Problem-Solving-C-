@@ -1,0 +1,38 @@
+
+#include <iostream>
+#include <string>
+using namespace std;
+// create all functions 
+
+// create function ReadNumber
+int ReadNumber() {
+    int Number;
+    cout << "Enter your Number : ";
+    cin >> Number;
+    cout << endl;
+    return Number;
+}
+
+// create function IsPrime
+bool IsPrimeNumber(int Number) {
+    return (Number % 2 != 0);
+}
+
+// create function PrintPrimeNumber
+void PrintPrimeNumber(bool prime) {
+    if(prime)
+        cout << endl << " This Prime Number " << endl;
+    else
+        cout << endl << " This Not Prime Number " << endl;
+
+}
+// main
+int main()
+{
+    // declared all varroiables 
+
+    //call all functions 
+    PrintPrimeNumber(IsPrimeNumber(ReadNumber()));
+    return 0;
+}
+

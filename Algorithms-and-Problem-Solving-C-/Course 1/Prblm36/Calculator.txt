@@ -1,0 +1,60 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create struct
+
+struct stNumbers {
+    int Number1;
+    int Number2;
+    char Operator;
+};
+
+// create all functions 
+
+// create function ReadTwoNumber
+stNumbers ReadTwoNumber() {
+    stNumbers Number;
+    cout << "Enter Number 1 : ";
+    cin >> Number.Number1;
+    cout << endl;
+    cout << "Enter Number 2 : ";
+    cin >> Number.Number2;
+    cout << endl;
+    cout << "Enter your operator [ + , - , / , * ] : ";
+    cin >> Number.Operator;
+    return Number;
+}
+
+// create function Calculate
+double Calculate(stNumbers Number) {
+    if (Number.Operator == '+')
+        return Number.Number1 + Number.Number2;
+    else if (Number.Operator == '-')
+        return Number.Number1 - Number.Number2;
+    else if (Number.Operator == '/')
+        return Number.Number1 / Number.Number2;
+    else if (Number.Operator == '*')
+        return Number.Number1 * Number.Number2;
+    else
+    {
+        cout <<endl<< "Your operator is not in this list [ + , - , / , * ] !!" << endl;
+        return 0;
+    }
+}
+
+// create function PrintResult
+void PrintResult(double result) {
+    cout <<endl<< "Result is : " << result<<endl;
+}
+
+//main
+int main()
+{
+    // declared all varriables
+    
+    // call all functions 
+    PrintResult(Calculate(ReadTwoNumber()));
+    return 0;
+}
+

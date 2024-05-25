@@ -1,0 +1,35 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create all functions
+
+// ceate function ReadNumbers 
+
+int ReadNumber(int& Number) {
+    
+    int sum = 0, i = 0;
+    while (Number != -99) {
+        cout << endl << "Enter your Number : ";
+        cin >> Number;
+        sum += Number;
+        cout << endl << "                          (+) " << endl;
+        i++;
+    }
+    return sum - (-99);
+}
+
+// create function PrintResult
+
+void PrintResult(int sum) {
+    cout << endl << "Sum is : " << sum<<endl;
+}
+int main()
+{
+    // declared all varriables 
+    int Number;
+    // call all functions 
+    PrintResult(ReadNumber(Number));
+    return 0;
+}
+

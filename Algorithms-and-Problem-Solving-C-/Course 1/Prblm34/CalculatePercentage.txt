@@ -1,0 +1,42 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create all functions
+// create function ReadAmount
+double ReadAmount() {
+    double Amont;
+    cout << "Enter your amount : ";
+    cin >> Amont;
+    cout << endl;
+    return Amont;
+}
+
+// create function CalculatePercentage
+double CalculatePercentage(double Amont,double Per) {
+    return Amont * Per;
+}
+
+// create function PrintTotalSales
+void PrintTotalSales(double Amont) {
+    if (Amont > 100.000)
+        cout << endl <<" Total sales : " << CalculatePercentage(Amont, 0.01) << endl;
+    else if (Amont > 500.000 && Amont <= 1000000)
+        cout << endl << " Total sales : " << CalculatePercentage(Amont, 0.02) << endl;
+    else if (Amont > 100.000 && Amont <= 500.000)
+        cout << endl << " Total sales : " << CalculatePercentage(Amont, 0.03) << endl;
+    else if (Amont > 500.000 && Amont <= 1000000)
+        cout << endl << " Total sales : " << CalculatePercentage(Amont, 0.05) << endl;
+    else
+        cout << endl << " Total sales : " << CalculatePercentage(Amont, 0) << endl;
+}
+// main
+int main()
+{
+    // declared all varriabels
+
+    // call all functions 
+    PrintTotalSales(ReadAmount());
+    return 0;
+}
+
