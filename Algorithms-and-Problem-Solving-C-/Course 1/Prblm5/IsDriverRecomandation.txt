@@ -1,0 +1,63 @@
+
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create struct strInfo 
+
+struct strInfo {
+    int age;
+    bool isDriverLicense;
+    bool isRecommandation;
+};
+// create all function
+
+// function one ReadStrInfo 
+
+strInfo ReadStrInfo() {
+    strInfo strInfoOne;
+    cout << "Enter your age : ";
+    cin >> strInfoOne.age;
+    cout << endl;
+    cout << "Enter your Driver License ( 0 or 1 ) : ";
+    cin >> strInfoOne.isDriverLicense;
+    cout << endl;
+    cout << "Enter your Recommandation ( 0 or 1 ) : ";
+    cin >> strInfoOne.isRecommandation;
+    cout << endl;
+    return strInfoOne;
+}
+
+// function two isDriverHiredAndRecomandation return boolean
+
+bool IsDriverHiredAndRecomandation(strInfo strInfoOne) {
+    if (strInfoOne.isRecommandation)
+    {
+        if (strInfoOne.age > 21 && strInfoOne.isDriverLicense)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+// function three PrintResult return message 
+string PrintResult(bool isHiredAndRecomandation) {
+    if (isHiredAndRecomandation)
+    {
+        return "Thanks, You are hired and Recomandation . ";
+    }
+    return "Im sorry, you are not hired and recomandation !";
+}
+
+// main 
+int main()
+{
+    // declared all varriables 
+    strInfo strInfoOne;
+    
+    // call functions
+    cout << PrintResult(IsDriverHiredAndRecomandation(ReadStrInfo())) << endl;
+    return 0;
+}
+

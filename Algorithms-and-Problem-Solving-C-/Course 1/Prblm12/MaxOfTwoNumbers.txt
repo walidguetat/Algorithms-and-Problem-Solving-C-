@@ -1,0 +1,48 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create struct
+
+struct Numbers {
+    int Number1;
+    int Number2;
+};
+
+// create all functions
+
+// create the first function ReadTwoNumbers 
+
+Numbers ReadTwoNumbers() {
+    Numbers Number;
+    cout << "Enter Number 1 : ";
+    cin >> Number.Number1;
+    cout << endl;
+    cout << "Enter Number 2 : ";
+    cin >> Number.Number2;
+    cout << endl;
+    return Number;
+}
+
+// create the second function MaxTwoNumbers
+int MaxTwoNumbers(Numbers Number) {
+    if (Number.Number1 > Number.Number2)
+        return Number.Number1;
+    return Number.Number2;
+}
+
+// create the third function is print the result
+
+void PrintMaxOfTwoNumbers(int max) {
+    cout <<endl<< "The max of two Numbers is : " << max << endl;
+}
+// main 
+int main()
+{
+   // declared varriables
+    
+   // call all functions 
+    PrintMaxOfTwoNumbers(MaxTwoNumbers(ReadTwoNumbers()));
+    return 0;
+}
+

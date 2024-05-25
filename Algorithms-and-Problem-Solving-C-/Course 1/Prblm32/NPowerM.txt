@@ -1,0 +1,46 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create struct 
+struct Numbers {
+    int N;
+    int M;
+};
+// create all functions 
+
+// create function ReadNumbers
+Numbers ReadNumbers() {
+    Numbers Number;
+    cout << "Enter [ N ] : ";
+    cin >> Number.N;
+    cout << endl;
+    cout << "Enter [ M ] : ";
+    cin >> Number.M;
+    cout << endl;
+    return Number;
+}
+
+// create function Pow
+int Pow(Numbers Number) {
+    int P = 1;
+    for (int i = 1; i <= Number.N; i++) {
+        P *= Number.M;
+    }
+    return P;
+}
+
+// create function PrintResult
+void PrintResult(int P) {
+    cout << "Result is : " << P;
+}
+// main
+int main()
+{
+    // declared all varriabes
+
+    // call all functions 
+    PrintResult(Pow(ReadNumbers()));
+    return 0;
+}
+

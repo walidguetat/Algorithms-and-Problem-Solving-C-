@@ -1,0 +1,35 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create all functions
+
+// create function ReadLOfcircle
+float ReadLOfCircle() {
+    float L;
+    cout << "Enter [ L ] : ";
+    cin >> L;
+    return L;
+}
+
+// create function CalculateCurcleArea
+float CalculateCircleArea(float L) {
+    const float Pi = 3.14;
+    float Area = pow(L,2)/(4*Pi);
+    return Area;
+}
+
+// create function PrintArea
+void PrintArea(float Area) {
+    cout << endl << "Area of Circle inscribed in Square is : " << Area << endl;
+}
+// main
+int main()
+{
+    // declared varriables 
+
+    // call all functions 
+    PrintArea(CalculateCircleArea(ReadLOfCircle()));
+    return 0;
+}
+

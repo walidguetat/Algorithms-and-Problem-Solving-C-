@@ -1,0 +1,33 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+// create all functions 
+void ReadRayonOfCircle(float& Rayon) {
+    cout << "Eenter your Rayon : ";
+    cin >> Rayon;
+    cout << endl;
+}
+
+// create function CalculateAreacircleByRayon
+float CalculateAreaCircleByRayon(float Rayon) {
+    return 3.14 * Rayon * Rayon;
+}
+
+// Create function PrintResults
+void PrintResults(float Area) {
+    cout << endl << "Area of Circle is : " << Area << endl;
+}
+// main
+
+int main()
+{
+    // declared all varriables 
+    float Rayon;
+    // call all functions 
+    ReadRayonOfCircle(Rayon);
+    PrintResults(CalculateAreaCircleByRayon(Rayon));
+    return 0;
+}
+

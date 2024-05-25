@@ -1,0 +1,85 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+// create struct 
+struct Marks {
+    int Mark1;
+    int Mark2;
+    int Mark3;
+};
+
+// create enum 
+enum EnumFailOrPass {Pass=1,Fail=2};
+
+// create all functions 
+
+// the first function is ReadThreeMarks
+Marks ReadThreeMarks() {
+    Marks Mark;
+    cout << "Enter the First Mark : ";
+    cin >> Mark.Mark1;
+    cout << endl;
+    cout << "Enter the Second Mark : ";
+    cin >> Mark.Mark2;
+    cout << endl;
+    cout << "Enter the Third Mark : ";
+    cin >> Mark.Mark3;
+    cout << endl;
+    return Mark;
+}
+
+// the second function is calculate SumOfThreeMarks 
+
+int SumOfThreeMarks(Marks Mark) {
+    int sum = 0;
+    return sum += Mark.Mark1 + Mark.Mark2 + Mark.Mark3;
+}
+
+// the third function is calculate average of three numbers AverageOfSumOfThreeMarks
+
+float AverageOfSumOfThreeMarks(int sum) {
+    return (float)sum / 3;
+}
+
+// the forth function is Checked if this average fail or pass
+
+EnumFailOrPass IsAveragePassOrFail(float average) {
+    if (average>=20)
+    {
+        return EnumFailOrPass::Pass;
+    }
+    else
+    {
+        return EnumFailOrPass::Fail;
+    }
+}
+
+// the fifth function is Print the average of three numbers 
+
+void PrintAverageOfThreeMarks(EnumFailOrPass Enum) {
+    
+    if (Enum==1)
+    {
+        cout << endl << "Good,Your Average of three Marks is Pass . " << endl;
+    }
+    else
+    {
+        cout << endl << "Im sorry,Your Average of three Marks is Fail !" << endl;
+    }
+
+}
+
+
+// main 
+
+int main()
+{
+    // declared varriables 
+
+    // call functions
+    PrintAverageOfThreeMarks(IsAveragePassOrFail(AverageOfSumOfThreeMarks(SumOfThreeMarks(ReadThreeMarks()))));
+    return 0;
+}
+

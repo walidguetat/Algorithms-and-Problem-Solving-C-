@@ -1,0 +1,40 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+// struct
+struct Number {
+    int number;
+};
+// all function
+
+// first Function ReadNumber 
+Number ReadNumber() {
+    Number nb;
+    cout << "Enter your Number : ";
+    cin >> nb.number;
+    return nb;
+}
+
+// second function IshalfNumber 
+
+double IsHalfNumber(Number nb) {
+    return (nb.number/2);
+}
+
+// third function is print result
+
+void PrintHalfOfNumber(double nb) {
+    cout <<endl<<"Half Number is : " << nb << endl;
+}
+// main
+
+int main()
+{
+    // declaration varriable 
+
+    // call all functions
+    PrintHalfOfNumber(IsHalfNumber(ReadNumber()));
+    return 0;
+}
+

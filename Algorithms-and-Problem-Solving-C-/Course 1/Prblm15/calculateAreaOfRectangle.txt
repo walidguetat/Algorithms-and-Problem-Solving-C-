@@ -1,0 +1,47 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create struct
+struct Rectangle {
+    int Longuer;
+    int Largeur;    
+};
+
+// create all functions
+
+// create function ReadlonguerAndLargeur of Rectangle 
+
+Rectangle ReadLonguerAndLarguer() {
+    Rectangle Rect;
+    cout << "Enter your Longuer : ";
+    cin >> Rect.Longuer;
+    cout << endl;
+    cout << "Enter your Largeur : ";
+    cin >> Rect.Largeur;
+    cout << endl;
+    return Rect;
+}
+
+// create function CalculateAreaOfRectangle
+
+int CalculateAreaOfRectangle(Rectangle Rect) {
+    return Rect.Longuer * Rect.Largeur;
+}
+
+// create function PrintAreaOfrectangle
+
+void PrintAreaOfRectangle(int area) {
+    cout <<endl<< "Area of Rectangle is : "<<area<<endl;
+}
+// main
+
+int main()
+{
+    // declared varriables
+
+    // call all functions 
+    PrintAreaOfRectangle(CalculateAreaOfRectangle(ReadLonguerAndLarguer()));
+    return 0;
+}
+

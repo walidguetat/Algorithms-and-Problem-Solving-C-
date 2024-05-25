@@ -1,0 +1,52 @@
+
+
+#include <iostream>
+#include<string>
+using namespace std;
+//create struct Fullname
+struct FullName {
+    string FirstName;
+    string LastName;
+};
+
+// all functions 
+
+// first function ReadFullName 
+
+FullName ReadFullName(){
+    FullName Name;
+    cout << "Enter your First Name : ";
+    cin >> Name.FirstName;
+    cout << endl;
+    cout << "Enter your Last Name : ";
+    cin >> Name.LastName;
+    cout << endl;
+    return Name;
+}
+
+// second function is GetFullName 
+
+string GetFullName(FullName Name) {
+    string allName;
+    cout << endl;
+    allName = Name.FirstName + " " + Name.LastName;
+    return allName;
+}
+
+// third function is print fullname 
+
+void PrintFullName(string allName) {
+    cout << "Your name is : " << allName<<endl;
+}
+
+// main 
+
+int main()
+{
+  
+    //call all functions 
+    PrintFullName(GetFullName(ReadFullName()));
+    
+    return 0;
+}
+

@@ -1,0 +1,36 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create all functions 
+
+// create function ReadDiameter
+float ReadDiameter(float& Diameter) {
+    cout << "Enter your Diameter : ";
+    cin >> Diameter;
+    cout << endl;
+    return Diameter;
+}
+
+// create function CalculateCircleAreaByDiameter
+float CalculateCircleAreaByDiameter(float Diameter) {
+    const float pi = 3.14;
+    float Area = (pi * (pow(Diameter, 2)) / 4);
+    return Area;
+}
+
+// create function PrintArea
+void PrintArea(float Area) {
+    cout << "Area of Circle By Diameter : " << Area;
+}
+// main
+
+int main()
+{
+    // declared all varriables 
+    float Diameter;
+    // call all functions 
+    PrintArea(CalculateCircleAreaByDiameter(ReadDiameter(Diameter)));
+    return 0;
+}
+

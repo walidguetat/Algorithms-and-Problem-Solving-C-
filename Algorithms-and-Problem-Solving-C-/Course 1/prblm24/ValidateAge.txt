@@ -1,0 +1,42 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create all functions 
+
+// create function ReadAge
+int ReadAge() {
+    int Age;
+    cout << "Enter your age : ";
+    cin >> Age;
+    return Age;
+}
+
+// create IsValidateNumberRange
+bool IsValidateNumberRange(int Age,int From,int To) {
+    return (Age >= From && Age <= To);
+}
+
+// create function PrintAge
+void PrintAge(int Age) {
+    if (IsValidateNumberRange(Age,18,45))
+    
+        cout<<endl<< "This age is in the range !"<<endl;
+    
+    else
+    
+        cout <<endl<< "This age is not in the range [18..45]."<<endl;
+    
+
+}
+// main
+
+int main()
+{
+    // declared all varriables 
+    
+    // call all function
+    PrintAge(ReadAge());
+    return 0;
+}
+

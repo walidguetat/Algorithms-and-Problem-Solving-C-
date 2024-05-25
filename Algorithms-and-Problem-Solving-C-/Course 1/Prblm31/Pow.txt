@@ -1,0 +1,59 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create all functions 
+
+// creaete function ReadNumbers
+int ReadNumbers(string Message) {
+    int Number;
+    cout << Message;
+    cin >> Number;
+    cout << endl;
+    return Number;
+}
+// create function Pow 2
+int PowOfTwo(int Number) {
+    int i,P=1;
+    for (i = 1; i <= 2; i++) {
+        P =P*Number;
+    }
+    return P;
+}
+
+// create function Pow 3
+int PowOfThree(int Number) {
+    int i, P = 1;
+    for (i = 1; i <= 3; i++) {
+        P = P * Number;
+    }
+    return P;
+}
+
+// create function Pow 4
+int PowOfFor(int Number) {
+    int i, P = 1;
+    for (i = 1; i <= 4; i++) {
+        P = P * Number;
+    }
+    return P;
+}
+// create function PrintResults
+void PrintResult(int p) {
+    cout <<endl<< "Power is : " << p<<endl;
+}
+// main
+int main()
+{
+    // declared all varriables 
+
+    // call all functions 
+    PrintResult(PowOfTwo(ReadNumbers("Enter your Number : ")));
+    cout << endl;
+    PrintResult(PowOfThree(ReadNumbers("Enter your Number : ")));
+    cout << endl;
+    PrintResult(PowOfFor(ReadNumbers("Enter your Number : ")));
+    cout << endl;
+    return 0;
+}
+

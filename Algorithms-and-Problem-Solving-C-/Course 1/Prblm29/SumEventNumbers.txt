@@ -1,0 +1,86 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create all functions 
+int ReadNumbers() {
+    int Number;
+    cout << "Enter your Number : ";
+    cin >> Number;
+    return Number;
+}
+
+//create function IsEven
+bool IsEven(int i) {
+    return (i % 2 != 0);
+}
+
+//create function SumEvenNumbers
+int SumEvenNumbers(int i) {
+    int sum = 0;
+    sum += i;
+    return sum;
+}
+
+// create function PrintNumbers_UsingForLoop
+void PrintNumbers_UsingForLoop(int Number) {
+    int i = 1, Sum = 0;
+    cout << endl << " =========> Using For Loop " << endl;
+
+    for (i = Number; i >= 1; i--) {
+        if (IsEven(i))
+        {
+            cout << endl << i << endl;
+            Sum += SumEvenNumbers(i);
+        }
+    }
+    cout << "Sum Even Numbers is : " << Sum << endl;
+}
+
+// create function PrintNumbers_UsingWhileLoop
+void PrintNumbers_UsingWhileLoop(int Number) {
+    int i = Number, Sum = 0;
+    cout << endl << " =========> Using While Loop " << endl;
+
+    while (i >= 1) {
+        if (IsEven(i))
+        {
+            cout << endl << i << endl;
+            Sum += SumEvenNumbers(i);
+        }
+
+        i--;
+    }
+    cout << "Sum Even Numbers is : " << Sum << endl;
+
+}
+
+// create function PrintNumbers_DoWhile
+void PrintNumbers_UsingDoWhile(int Number) {
+    int i = Number, Sum = 0;
+    cout << endl << " =========> Using Do While " << endl;
+
+    do {
+        if (IsEven(i))
+        {
+            cout << endl << i << endl;
+            Sum += SumEvenNumbers(i);
+        }
+        i--;
+    } while (i >= 1);
+    cout << "Sum Even Numbers is : " << Sum << endl;
+
+}
+
+// main
+int main()
+{
+    // declared all varriables
+    int N = ReadNumbers();
+    //call all functions 
+    PrintNumbers_UsingForLoop(N);
+    PrintNumbers_UsingWhileLoop(N);
+    PrintNumbers_UsingDoWhile(N);
+    return 0;
+}
+

@@ -1,0 +1,54 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+// create struct 
+struct Numbers {
+    int Number1;
+    int Number2;
+};
+
+// create all functions 
+
+// create function ReadTwoNumbers
+
+Numbers ReadTwoNumbers() {
+    Numbers Number;
+    cout << "Enter Number 1 : ";
+    cin >> Number.Number1;
+    cout << endl;
+    cout << "Enter Number 2 : ";
+    cin >> Number.Number2;
+    cout << endl;
+    return Number;
+}
+
+// create function SwapTwoNumbers
+
+Numbers SwapTwoNumbers(Numbers Number) {
+    int temp;
+    temp = Number.Number1;
+    Number.Number1 = Number.Number2;
+    Number.Number2 = temp;
+    return Number;
+}
+
+// create a function PrintResults
+
+void PrintResults(Numbers Number) {
+    cout <<endl<< "-------- After Swap -------- " << endl;
+    cout <<endl<< "Number 1 : " << Number.Number1<<endl;
+    cout << "Number 2 : " << Number.Number2 << endl;
+}
+// main
+int main()
+{
+    // declared varriables
+
+    // call all funcrions 
+    PrintResults(SwapTwoNumbers(ReadTwoNumbers()));
+    
+    return 0;
+}
+

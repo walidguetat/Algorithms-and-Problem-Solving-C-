@@ -1,0 +1,56 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+// create struct 
+struct Marks {
+    int Mark1;
+    int Mark2;
+    int Mark3;
+};
+// create all functions 
+
+// the first function is ReadThreeMarks
+Marks ReadThreeMarks() {
+    Marks Mark;
+    cout << "Enter the First Mark : ";
+    cin >> Mark.Mark1;
+    cout << endl;
+    cout << "Enter the Second Mark : ";
+    cin >> Mark.Mark2;
+    cout << endl;
+    cout << "Enter the Third Mark : ";
+    cin >> Mark.Mark3;
+    cout << endl;
+    return Mark;
+}
+
+// the second function is calculate SumOfThreeMarks 
+
+int SumOfThreeMarks(Marks Mark) {
+    int sum = 0;
+    return sum += Mark.Mark1 + Mark.Mark2 + Mark.Mark3;
+}
+
+// the third function is calculate average of three numbers AverageOfSumOfThreeMarks
+float AverageOfSumOfThreeMarks(int sum) {
+    return sum / 3;
+}
+
+// the forth function is Print the average of three numbers 
+
+void PrintAverageOfThreeMarks(float average) {
+    cout <<endl<<"The Average of three Marks is : " << average<<endl;
+}
+// main 
+
+int main()
+{
+    // declared varriables 
+
+    // call functions
+    PrintAverageOfThreeMarks(AverageOfSumOfThreeMarks(SumOfThreeMarks(ReadThreeMarks())));
+    return 0;
+}
+

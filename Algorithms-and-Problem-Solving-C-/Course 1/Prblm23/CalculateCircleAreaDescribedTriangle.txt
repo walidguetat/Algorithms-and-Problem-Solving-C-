@@ -1,0 +1,46 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+
+// create all functions 
+
+// create function ReadThreeVarriables
+void ReadThreeVarriables(float& A, float& B, float& C) {
+    cout << "Enter [ A ] : ";
+    cin >> A;
+    cout << endl;
+    cout << "Enter [ B ] : ";
+    cin >> B;
+    cout << endl;
+    cout << "Enter [ C ] : ";
+    cin >> C;
+    cout << endl;
+}
+
+// Create function CalculateCircleAreaDescribdedAnArbitraryTriangle
+float CalculateCircleAreaDescribdedAnArbitraryTriangle(float A, float B, float C) {
+    float P = (A + B + C) / 2;
+    const float Pi = 3.14;
+    float S = A * B * C;
+    float M = 4 * sqrt(P * (((P - A) * (P - B) * (P - C))));
+    float Area = Pi * pow((S/M), 2);
+    return Area;
+}
+
+// create function PrintArea
+
+void PrintArea(float Area) {
+    cout << endl << "Area of Circle describded an arbitrary Triangle is : " << Area << endl;
+}
+// main
+int main()
+{
+    // declared varriables 
+    float A, B, C;
+    // call all function
+    ReadThreeVarriables(A, B, C);
+    PrintArea(CalculateCircleAreaDescribdedAnArbitraryTriangle(A, B, C));
+    return 0;
+}
+

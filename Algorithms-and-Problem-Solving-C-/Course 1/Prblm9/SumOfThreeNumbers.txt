@@ -1,0 +1,51 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create struct 
+struct Numbers {
+    int nb1;
+    int nb2;
+    int nb3;
+};
+
+// create all functions
+
+// first function ReadNumbers 
+
+Numbers ReadNumbers() {
+    Numbers Number;
+    cout << "Enter the first Number : ";
+    cin >> Number.nb1;
+    cout << endl;
+    cout << "Enter the second Number : ";
+    cin >> Number.nb2;
+    cout << endl;
+    cout << "Enter the third Number : ";
+    cin >> Number.nb3;
+    cout << endl;
+    return Number;
+}
+
+// second function is SumOfThreeNumbers
+
+int SumOfThreeNumbers(Numbers Number) {
+    int sum = 0;
+    return sum += Number.nb1 + Number.nb2 + Number.nb3;
+}
+
+void PrintSumOfThreeNumbers(int sum) {
+    cout <<endl<< "Sum of three Numbers is : " << sum<<endl;
+}
+// main
+
+int main()
+{
+    // declared varriables 
+
+    // call all functions 
+    PrintSumOfThreeNumbers(SumOfThreeNumbers(ReadNumbers()));
+
+   return 0;
+}
+

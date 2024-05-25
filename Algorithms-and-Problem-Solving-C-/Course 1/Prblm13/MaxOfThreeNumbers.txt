@@ -1,0 +1,62 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create struct
+
+struct Numbers {
+    int Number1;
+    int Number2;
+    int Number3;
+
+};
+
+// create all functions
+
+// create the first function ReadThreeNumbers 
+
+Numbers ReadThreeNumbers() {
+    Numbers Number;
+    cout << "Enter Number 1 : ";
+    cin >> Number.Number1;
+    cout << endl;
+    cout << "Enter Number 2 : ";
+    cin >> Number.Number2;
+    cout << endl;
+    cout << "Enter Number 3 : ";
+    cin >> Number.Number3;
+    cout << endl;
+    return Number;
+}
+
+// create the second function MaxThreeNumbers
+int MaxThreeNumbers(Numbers Number) {
+    if (Number.Number1 > Number.Number2 && Number.Number3)
+    {
+        return Number.Number1;
+    }
+    else if (Number.Number2 > Number.Number3)
+    {
+        return Number.Number2;
+    }
+    else
+    {
+       return Number.Number3;
+    }
+}
+
+// create the third function is print the result
+
+void PrintMaxOfThreeNumbers(int max) {
+    cout << endl << "The max of Three Numbers is : " << max << endl;
+}
+// main 
+int main()
+{
+    // declared varriables
+
+    // call all functions 
+    PrintMaxOfThreeNumbers(MaxThreeNumbers(ReadThreeNumbers()));
+    return 0;
+}
+

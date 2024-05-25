@@ -1,0 +1,51 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create struct
+struct Marked {
+    int Mark;
+};
+// create all functions 
+
+// first function ReadMark 
+
+Marked ReadMark(){
+    Marked YourMarked;
+    cout<<"Enter your Mark : ";
+    cin>> YourMarked.Mark;
+    return YourMarked;
+}
+
+// second function 
+
+bool IsPassOrFail(Marked YourMarked) {
+    if (YourMarked.Mark > 10)
+    {
+        return true;
+    }
+    return false;
+}
+
+//^third function is print your result 
+
+void PrintResult(bool IsPassOrFail) {
+    if (IsPassOrFail)
+        {
+        cout<<endl<<"Good job, Your are Pass ."<<endl;
+        }
+        else
+        { 
+        cout<<endl<<"Im sorry, You are Fail ! "<<endl;
+        }
+}
+
+// main
+int main()
+{
+    // declared varriables
+
+    // call all functions 
+    PrintResult(IsPassOrFail(ReadMark()));
+    return 0;
+}

@@ -1,0 +1,35 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create all functions
+
+// create function ReadTwoNumbers
+void ReadTwoNumbers(float& a, float& d) {
+    cout << "Enter [a] : ";
+    cin >> a;
+    cout << endl;
+    cout << "Enter [d] : ";
+    cin >> d;
+    cout << endl;
+}
+
+// create finction CalculateAreaByDiagonale
+float CalculateAreaByDiagonale(float a, float d) {
+    return (a*sqrt((d*d)-(a*a)));
+}
+
+// create function PrintAreaByDiagonale
+void PrintAreaByDiagonale(float Area) {
+    cout << endl<<"Area of Rectangle is : "<<Area;
+}
+int main()
+{
+    // declared all varriables 
+    float a,d;
+    // call all functions 
+    ReadTwoNumbers(a,d);
+    PrintAreaByDiagonale(CalculateAreaByDiagonale(a,d));
+    return 0;
+}
+

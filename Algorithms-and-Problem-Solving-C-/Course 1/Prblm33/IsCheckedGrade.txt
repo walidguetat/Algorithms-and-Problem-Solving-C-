@@ -1,0 +1,69 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create all functions
+
+// create function ReadGrade
+int ReadGrade() {
+    int Grade;
+    cout << "Enter your grade : ";
+    cin >> Grade;
+    cout << endl;
+    return Grade;
+}
+
+// create function IsCheckedGrade
+
+bool IsCheckedGradeA(int Grade) {
+    return (Grade >= 90 && Grade <= 100);
+}
+bool IsCheckedGradeB(int Grade) {
+    return (Grade >= 80 && Grade <= 89);
+}
+bool IsCheckedGradeC(int Grade) {
+    return (Grade >= 70 && Grade <= 79);
+}
+bool IsCheckedGradeD(int Grade) {
+    return (Grade >= 60 && Grade <= 69);
+}
+bool IsCheckedGradeE(int Grade) {
+    return (Grade >= 50 && Grade <= 59);
+}
+// create function PrintResult
+void PrintResult(int Grade) {
+    if (IsCheckedGradeA(Grade))
+    {
+        cout<< "A" << endl;
+    }
+    else if (IsCheckedGradeB(Grade))
+    {
+        cout << "B" << endl;
+    }
+    else if (IsCheckedGradeC(Grade))
+    {
+        cout << "C" << endl;
+    }
+    else if (IsCheckedGradeD(Grade))
+    {
+        cout << "D" << endl;
+    }
+    else if (IsCheckedGradeE(Grade))
+    {
+        cout << "E"<<endl;
+    }
+    else
+    {
+        cout << "F"<<endl;
+    }
+}
+// main
+int main()
+{
+    // declared all varriabels
+
+    // call all functions 
+    PrintResult(ReadGrade());
+    return 0;
+}
+

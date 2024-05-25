@@ -1,0 +1,84 @@
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create all functions 
+int ReadNumbers() {
+    int Number;
+    cout << "Enter your Number : ";
+    cin >> Number;
+    return Number;
+}
+
+// create function PrintNumber
+void PrintNumbers(int Number) {
+    int i = 1;
+    for (i = 1; i <= Number; i++) {
+        cout << endl << i << endl;
+    }
+}
+
+
+// main
+int main()
+{
+    // declared all varriables
+
+    //call all functions 
+    PrintNumbers(ReadNumbers());
+#include <iostream>
+#include<string>
+using namespace std;
+// create all functions 
+int ReadNumbers() {
+    int Number;
+    cout << "Enter your Number : ";
+    cin >> Number;
+    return Number;
+}
+
+// create function PrintNumbers_UsingForLoop
+void PrintNumbers_UsingForLoop(int Number) {
+    int i = 1;
+    for (i = 1; i <= Number; i++) {
+        cout << endl << i << endl;
+    }
+}
+
+// create function PrintNumbers_UsingWhileLoop
+void PrintNumbers_UsingWhileLoop(int Number) {
+    int i = 1;
+    while (i <= Number) {
+        cout << endl << i << endl;
+        i++;
+    }
+}
+
+// create function PrintNumbers_DoWhile
+void PrintNumbers_UsingDoWhile(int Number) {
+    int i = 1;
+    do {
+        cout << endl << i << endl;
+        i++;
+    } while (i<=Number);
+}
+
+// main
+int main()
+{
+    // declared all varriables
+    int N = ReadNumbers();
+    //call all functions 
+    cout << endl << " =========> Using For Loop " << endl;
+    PrintNumbers_UsingForLoop(N);
+    cout << endl << " =========> Using While Loop " << endl;
+    PrintNumbers_UsingWhileLoop(N);
+    cout << endl << " =========> Using Do While " << endl;
+    PrintNumbers_UsingDoWhile(N);
+    return 0;
+}
+
+
+    return 0;
+}
+
