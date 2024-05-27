@@ -1,0 +1,64 @@
+
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create all functions 
+// create functions ReadNumber 
+int ReadNumber(string message) {
+    int Number;
+    cout << message;
+    cin >> Number;
+    cout << endl;
+    return Number;
+}
+// create function Mod
+bool Mod(int Number, int i) {
+    return (Number % i == 0);
+}
+
+// create function DivBySelf
+bool DivBySelf(int Number, int i) {
+    return(Number / i == Number);
+}
+// create function CalculateSum
+int Sum(int Number) {
+    int sum = 0, i = 1;
+    for (i = 1; i <= Number; i++) {
+        if (DivBySelf(Number,i))
+            sum += i;
+        else if (Mod(Number,i))
+        {
+            sum += i;
+        }
+    }
+    return (sum-Number);
+}
+// create a function IsPerfectNumberOrNot
+bool IsPerfectNumberOrNot(int Number) {
+    
+    if (Sum(Number) == Number)
+    {
+        cout << endl << "sum = " << Sum(Number) << endl;
+        return true;
+    }
+    else
+        return false;
+}
+
+// create a function PrintfPerfectNumberOrNot
+void PrintfPerfectNumberOrNot(bool IsPerf) {
+    if (IsPerf)
+        cout <<endl<< "Is Perfect Number "<<endl;
+    else
+        cout <<endl<< "Is Not Prime Number !"<<endl;
+}
+// main 
+int main()
+{
+    // declared all variables 
+    // call all functions 
+    PrintfPerfectNumberOrNot(IsPerfectNumberOrNot(ReadNumber("Enter your Number : ")));
+    return 0;
+}
+

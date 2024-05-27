@@ -1,0 +1,47 @@
+
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create all functions 
+// create functions ReadNumber 
+int ReadNumber(string message) {
+    int Number;
+    cout << message;
+    cin >> Number;
+    cout << endl;
+    return Number;
+}
+
+bool IsPrimeNumber(int i) {
+    if (i % 2 == 0)
+        return false;
+    else if (i / 3 == 1 || i / 5 == 1)
+        return true;
+    else if (i % 3 == 0 || i % 5 == 0)
+        return false;
+    else if (i%3==0)
+        return false;
+    else
+        return true;
+}
+
+// create function PrintIsPrimeNumber
+void PrintIsPrimeNumber(int Number) {
+    cout << endl << 2 << " Prime " << endl;
+    for (int i = 3; i <= Number; i++) {
+        if (IsPrimeNumber(i))
+            cout <<endl<< i << " Prime "<<endl;
+        else
+            cout <<endl<< i << " - "<<endl;
+    }
+}
+// main 
+int main()
+{
+    // declared all variables 
+    // call all functions 
+    PrintIsPrimeNumber(ReadNumber("Enter your Number : "));
+    return 0;
+}
+
