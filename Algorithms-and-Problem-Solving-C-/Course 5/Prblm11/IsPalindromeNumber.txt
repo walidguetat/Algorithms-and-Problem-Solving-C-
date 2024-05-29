@@ -1,0 +1,54 @@
+
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create all functions
+
+// create function readNumber
+int ReadNumber(string message) {
+    int Number;
+    do {
+        cout << message;
+        cin >> Number;
+        cout << endl;
+    } while (Number <= 0);
+    return Number;
+}
+
+// create function IsPalindrome
+bool IsPalidromeNumber(int Number) {
+    string SNumber = to_string(Number);
+    int l = SNumber.length();
+    for (int i = 0; i < l; i++) {
+        if (SNumber[i] == SNumber[l-1])
+        {
+            i++;
+            l--;
+            return true;
+        }
+        else
+        {
+            return false;
+
+        }
+    }
+}
+
+// create function PrintIsPalindromeOrNot
+void PrintIsPalindromeOrNot(bool IsPalindrome) {
+    if (IsPalindrome==true)
+        cout << endl << "Yes ,it is Palindrome Number ."<<endl;
+    else
+        cout << endl << "No ,it is Not Palindrome Number !"<<endl;
+}
+// main
+int main()
+{
+    // declared all variables 
+    int N = ReadNumber("Enter your Number : ");
+    // call all functions
+    PrintIsPalindromeOrNot(IsPalidromeNumber(N));
+    return 0;
+}
+

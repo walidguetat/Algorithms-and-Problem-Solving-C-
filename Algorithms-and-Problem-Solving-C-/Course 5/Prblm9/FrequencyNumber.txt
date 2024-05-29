@@ -1,0 +1,78 @@
+
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create all functions 
+// create functions ReadNumber 
+int ReadNumber(string message) {
+    int Number;
+    do {
+        cout << message;
+        cin >> Number;
+        cout << endl;
+    } while (Number <= 0);
+    return Number;
+}
+
+
+// create function SupZero
+bool SupZero(int Number) {
+    return (Number > 0);
+}
+
+
+// create function GetDigits
+int GetDigits(int Number) {
+    int r = 0, q = 0;
+    while (SupZero(Number)) {
+        q = Number / 10;
+        r = Number % 10;
+        Number = q;
+    }
+   // cout << endl << "Function digits : " << r << endl;
+    return r;
+}
+
+
+// function SumNumber
+int CountNumberOfFrequency(int Number,int Dijits) {
+
+    int q = 0, r = 0, CountNumberFrequency = 0, NumberOfDijit = 0;
+    while (SupZero(Number)) {
+
+        q = Number / 10;
+        r = Number % 10;
+        if (r == NumberOfDijit)
+            CountNumberFrequency++;
+        Number = q;
+
+    }
+
+    return CountNumberFrequency;
+}
+
+// create function PrintFrequencyNumber
+void PrintFrequencyNumber(int Number,int Digits) {
+    int sum=0;
+    
+        Digits = GetDigits(Number);
+        //cout << "Digits is : " << GetDigits(Number) << endl;
+        sum = CountNumberOfFrequency(Digits,Number);
+        if (sum == 1)
+            cout << endl << Digits << " Number frequency is : " << sum << " Time ." << endl;
+        else
+            cout << endl << Digits << " Number frequency is : " << sum << " Time(s) ." << endl;
+}
+
+// main 
+int main()
+{
+    // declared all variables 
+    int N= ReadNumber("Enter your Number : ");
+
+    // call all functions 
+    PrintFrequencyNumber(GetDigits(N), CountNumberOfFrequency(GetDigits(N),N));
+    return 0;
+}
+

@@ -1,0 +1,53 @@
+
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create all functions 
+// create functions ReadNumber 
+int ReadNumber(string message) {
+    int Number;
+    do {
+        cout << message;
+        cin >> Number;
+        cout << endl;
+    } while (Number <= 0);
+    return Number;
+}
+
+bool SupZero(int Number) {
+    return (Number > 0);
+}
+
+
+
+// function SumNumber
+int CountNumberOfFrequency(int NumberOfDijit,int Number) {
+    
+    int q = 0, r = 0, CountNumberFrequency = 0;
+    while (SupZero(Number)) {
+
+        q = Number / 10;
+        r = Number % 10;
+        if (r == NumberOfDijit)
+            CountNumberFrequency++;
+        Number = q;
+
+    }
+
+    return CountNumberFrequency;
+}
+
+// create function PrintFrequencyNumber
+void PrintFrequencyNumber(int sum) {
+    cout << "Number frequency is : " << sum << endl;
+}
+// main 
+int main()
+{
+    // declared all variables 
+    // call all functions 
+    PrintFrequencyNumber(CountNumberOfFrequency(ReadNumber("Enter your Number digits : "), ReadNumber("Enter your Number : ")));
+    return 0;
+}
+

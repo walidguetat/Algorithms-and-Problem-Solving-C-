@@ -1,0 +1,47 @@
+
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create all functions 
+// create functions ReadNumber 
+int ReadNumber(string message) {
+    int Number;
+    do {
+        cout << message;
+        cin >> Number;
+        cout << endl;
+    } while (Number <= 0);
+    return Number;
+}
+
+bool SupZero(int Number) {
+    return (Number > 0);
+}
+
+// function ReversedOrderNumber
+int ReversedOrderNumber(int Number) {
+    string str = "";
+    int q = 0, r = 0;
+    while (SupZero(Number)) {
+        q = Number / 10;
+        r = Number % 10;
+        str += to_string(r);
+        Number = q;
+    }
+    return stoi(str);
+}
+
+// create function printReversedOrderNumber
+void PrintReversedOrderNumber(int Number) {
+    cout << "Number Reversed : " << Number<< endl;
+}
+// main 
+int main()
+{
+    // declared all variables 
+    // call all functions 
+    PrintReversedOrderNumber(ReversedOrderNumber(ReadNumber("Enter your Number : ")));
+    return 0;
+}
+
