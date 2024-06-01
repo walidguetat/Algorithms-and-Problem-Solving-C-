@@ -1,0 +1,83 @@
+
+
+#include <iostream>
+#include<string>
+#include<cstdlib>
+using namespace std;
+// create all functions
+
+// create function ReadNumberOfkeys
+int ReadNumberOfkeys(string message) {
+    int NumberOfkeys = 0;
+    do {
+        cout << message;
+        cin >> NumberOfkeys;
+        cout << endl;
+    } while (NumberOfkeys <= 0);
+    return NumberOfkeys;
+}
+//create function RandomNumber
+int RandomNumber(int From, int To) {
+    int randNum = rand() % (To - From + 1) + From;
+    return randNum;
+}
+
+// create function GetRandomSubkeys
+string GetRandomSubkeys() {
+    string SubKey = "";
+    for (int i = 1; i <= 4; i++) {
+        SubKey += char(RandomNumber(65, 90));
+    }
+    return SubKey;
+}
+
+// create function GetRandomKey
+string GetRandomKey() {
+    string Key = "";
+    for (int i = 1; i <= 4; i++) {
+        Key += GetRandomSubkeys() + "-";
+        if (i == 4)
+        {
+            Key += GetRandomSubkeys();
+        }
+    }
+    return Key;
+}
+
+// create function PrintListOfKeys
+void PrintListOfKeys(int Number) {
+    for (int i = 1; i <= Number; i++) {
+        cout << "Key [" << i << "] : " << GetRandomKey() << endl;
+    }
+}
+// main
+int main()
+{
+    // declared all variables 
+   //seeds the random number generator in c++ ,called only once 
+    srand((unsigned)time(NULL));
+
+    // call all functions
+
+    PrintListOfKeys(ReadNumberOfkeys("Enter your Number of Keys : "));
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /* cout << rand() % 30 << endl;
+    cout << rand() % 30 << endl;*/
+
+
+
+
+
+
+    return 0;
+}
+

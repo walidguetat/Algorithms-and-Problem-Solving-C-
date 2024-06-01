@@ -1,0 +1,67 @@
+
+
+#include <iostream>
+#include<string>
+#include<cstdlib>
+using namespace std;
+
+// create list of enums
+enum encharType { SmallLetter = 1, CapitalLetter = 2, SpecialChar = 3,Digit=4 };
+
+// create all functions
+
+//create function RandomNumber
+int RandomNumber(int From, int To) {
+    int randNum = rand() % (To - From + 1) + From;
+    return randNum;
+}
+
+// create function GetRandomChar
+char GetRandomChar(encharType chartype) {
+    switch (chartype) {
+
+        case encharType::SmallLetter: {
+            return char(RandomNumber(97, 122));
+            break;
+        }
+        case encharType::CapitalLetter: {
+            return char(RandomNumber(65, 90));
+            break;
+        }
+        case encharType::SpecialChar: {
+            return char(RandomNumber(33, 47));
+            break;
+        }
+        case encharType::Digit: {
+            return char(RandomNumber(48, 57));
+            break;
+        }
+    }
+}
+
+
+// main
+int main()
+{
+    // declared all variables 
+   //seeds the random number generator in c++ ,called only once 
+    srand((unsigned)time(NULL));
+
+    // call all functions
+
+
+   /* cout << rand() % 30 << endl;
+    cout << rand() % 30 << endl;*/
+
+    cout << GetRandomChar(encharType::CapitalLetter) << endl;
+    cout << GetRandomChar(encharType::SmallLetter) << endl;
+    cout << GetRandomChar(encharType::SpecialChar) << endl;
+    cout << GetRandomChar(encharType::Digit) << endl;
+
+
+
+   
+
+    return 0;
+}
+

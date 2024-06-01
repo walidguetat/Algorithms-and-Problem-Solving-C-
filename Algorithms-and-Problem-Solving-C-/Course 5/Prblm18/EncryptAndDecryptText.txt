@@ -1,0 +1,95 @@
+
+
+#include <iostream>
+#include<cstring>
+using namespace std;
+// create all functions
+
+// create function readText
+string ReadText(string message) {
+    string Text;
+    do {
+        cout << message;
+        cin >> Text;
+        cout << endl;
+    } while (Text.length()<=0);
+    return (Text);
+}
+
+// create function EncryptText
+string EncryptText(string Text) {
+    char Lettres[27] = {'a','b','c','d','e','f','g','h','k','l','v','m','n','t','u','i','o','p','x','y','z','j','w','t','q','s','r' };
+    char LettresCrypt[27] = {'k','l','v','m','n','t','u','i','p','x','y','r','z','j','w','t','q','s','o','a','b','c','d','e','f','g','h'};
+    string Textcrypte = "";
+    bool Upper=false;
+    for (int i = 0; i < Text.length(); i++) {
+        char C = Text.at(i);
+
+        for (int j = 0; j < sizeof(LettresCrypt) / sizeof(char); j++) {
+            if (C == LettresCrypt[j])
+            {
+                for (int z = 0; z < sizeof(Lettres) / sizeof(char); z++) {
+                    if (z == j) 
+                    {
+                        
+                            Textcrypte += Lettres[z];
+                            break;
+                    }
+                    
+                }
+            }
+        }
+    }
+    return Textcrypte;
+}
+
+// create function DecryptText 
+string DecryptText(string Text) {
+    char Lettres[27] = { 'a','b','c','d','e','f','g','h','k','l','v','m','n','t','u','i','o','p','x','y','z','j','w','t','q','s','r'};
+    char LettresDecrypt[27] = { 'k','l','v','m','n','t','u','i','p','x','y','r','z','j','w','t','q','s','o','a','b','c','d','e','f','g','h'};
+    string TextDecrypte = "";
+    bool Upper = false;
+    for (int i = 0; i < Text.length(); i++) {
+        char C = Text.at(i);
+
+        for (int j = 0; j < sizeof(Lettres) / sizeof(char); j++) {
+            if (C == Lettres[j])
+            {
+                for (int z = 0; z < sizeof(LettresDecrypt) / sizeof(char); z++) {
+                    if (z == j)
+                    {
+
+                        TextDecrypte += LettresDecrypt[z];
+                        break;
+                    }
+
+                }
+            }
+        }
+    }
+    return TextDecrypte;
+}
+
+//create function PrintEncryptText
+void PrintEncryptText(string EncryptText) {
+    cout << "Text After Crypt is : "<<EncryptText<<endl;
+}
+//create function PrintDecryptText
+void PrintDecryptText(string DecryptText) {
+    cout << "Decrypt Text is : "<<DecryptText<<endl;
+}
+
+// main
+int main()
+{
+    // declared all variables 
+    //int
+    string P = ReadText("Enter your Text : ");
+    // call all functions
+    cout << endl << "Text Before Encrypt : " << P << endl;
+    PrintEncryptText(EncryptText(P));
+    cout << endl << "Text After Decrypt : "<< EncryptText(P) << endl;
+    PrintDecryptText(DecryptText(EncryptText(P)));
+    return 0;
+}
+

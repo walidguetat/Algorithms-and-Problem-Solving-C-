@@ -1,0 +1,32 @@
+
+
+#include <iostream>
+#include<string>
+#include<cstdlib>
+using namespace std;
+// create all functions
+//create function RandomNumber
+int RandomNumber(int From, int To) {
+    int randNum = rand() % (To - From + 1) + From;
+    return randNum;
+}
+// main
+int main()
+{
+    // declared all variables 
+    //seeds the random number generator in c++ ,called only once 
+    srand((unsigned)time(NULL));
+   
+    // call all functions
+
+   /* cout << rand() % 30 << endl;
+    cout << rand() % 30 << endl;
+    cout << rand() % 30 << endl;*/
+
+    cout << RandomNumber(0, 10);
+    cout << RandomNumber(0, 10);
+    cout << RandomNumber(0, 10);
+
+    return 0;
+}
+

@@ -1,0 +1,78 @@
+
+
+#include <iostream>
+#include<string>
+#include<cstdlib>
+using namespace std;
+// create all functions
+
+// create function ReadNumberOfElements
+int ReadNumberOfElements(string message) {
+    int NumberOfElements = 0;
+    do {
+        cout << message;
+        cin >> NumberOfElements;
+        cout << endl;
+    } while (NumberOfElements <= 0);
+    return NumberOfElements;
+}
+
+//create function RandomNumber
+int RandomNumber(int From, int To) {
+    int randNum = rand() % (To - From + 1) + From;
+    return randNum;
+}
+
+
+// create function ReadArray
+void ReadArray(int arrElement[100], int Length) {
+    cout << endl << "Read all elements of array :" << endl;
+    for (int i = 0; i < Length; i++) {
+        int nb = RandomNumber(1, 100);
+        cout << "Element (" << i + 1 << ") = " << nb << endl;
+        arrElement[i] = nb;
+        cout << endl;
+    }
+}
+// create function SumSizeRandomNumber
+int SumSizeRandomNumber(int arrElement[100], int Length) {
+    int Sum = 0;
+    for (int i = 0; i < Length; i++) {
+        
+            Sum += arrElement[i];
+        
+    }
+    return Sum;
+}
+
+// create function PrintSumRandomElement
+void PrintSumRandomElement(int Sum) {
+    cout << endl << "Sum Number is : " << Sum << endl;
+}
+// create function PrintElementsOfArray
+void PrintElementsOfArray(int arrElement[100], int& Number) {
+    int i = 0;
+    cout << "Original array : ";
+    for (i = 0; i < Number; i++) {
+        cout << arrElement[i] << " ";
+    }
+    cout << endl;
+}
+
+// main
+int main()
+{
+    // declared all variables
+    int arrElement[100] = {};
+    int Number = ReadNumberOfElements("Enter You number : ");
+
+    //seeds the random number generator in c++ ,called only once 
+    srand((unsigned)time(NULL));
+
+    // call all functions
+    ReadArray(arrElement, Number);
+    PrintElementsOfArray(arrElement, Number);
+    PrintSumRandomElement(SumSizeRandomNumber(arrElement, Number));
+    return 0;
+}
+

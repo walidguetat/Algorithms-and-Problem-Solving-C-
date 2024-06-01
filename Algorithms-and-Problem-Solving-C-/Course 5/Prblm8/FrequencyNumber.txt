@@ -40,7 +40,11 @@ int CountNumberOfFrequency(int NumberOfDijit,int Number) {
 
 // create function PrintFrequencyNumber
 void PrintFrequencyNumber(int sum) {
-    cout << "Number frequency is : " << sum << endl;
+    if(sum==1)
+        cout << "Number frequency is : " << sum <<" Time ." << endl;
+    else
+        cout << "Number frequency is : " << sum << " Time(s) ." << endl;
+
 }
 // main 
 int main()

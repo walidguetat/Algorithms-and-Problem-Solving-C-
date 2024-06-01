@@ -1,0 +1,40 @@
+
+
+#include <iostream>
+#include<string>
+using namespace std;
+// create all functions
+
+// create function readNumber
+int ReadNumber(string message) {
+    int Number;
+    do {
+        cout << message;
+        cin >> Number;
+        cout << endl;
+    } while (Number <= 0);
+    return Number;
+}
+
+// create function PrintLetterPattern
+void PrintLetterPattern(int Number) {
+    int FirstLetter = 65, Lastletter = FirstLetter + Number;
+    for (int i = FirstLetter; i<= Lastletter; i++) {
+        cout << endl;
+        for (int j = 1; j <= (Lastletter-FirstLetter-Number)+1; j++) {
+            cout << char(i);
+        }
+        Number--;
+    }
+}
+
+// main
+int main()
+{
+    // declared all variables 
+    int N = ReadNumber("Enter your Number : ");
+    // call all functions
+    PrintLetterPattern(N);
+    return 0;
+}
+

@@ -1,0 +1,80 @@
+
+
+#include <iostream>
+#include<string>
+#include<cstdlib>
+using namespace std;
+// create all functions
+
+// create function ReadNumberOfElements
+int ReadNumberOfElements(string message) {
+    int NumberOfElements = 0;
+    do {
+        cout << message;
+        cin >> NumberOfElements;
+        cout << endl;
+    } while (NumberOfElements <= 0);
+    return NumberOfElements;
+}
+// create function ReadElemntsOfArray
+void ReadElemntsOfArray(int Number, int arrElement[100]) {
+    
+    int nb;
+    cout << " -- Enter Array Elements -- " << endl;
+    for (int i = 0; i < Number; i++) {
+        cout << endl << "Enter Element [ " << i+1 << " ] : ";
+        cin >> nb;
+        arrElement[i] = nb;
+        cout << endl;
+    }
+    cout <<endl<<"This array is complited ! " << endl;
+}
+
+// create function PrintElementsOfArray
+void PrintElementsOfArray(int arrElement[100], int& Number) {
+    int i=0;
+    cout << "Original array : ";
+    for (i = 0; i < Number;i++) {
+        cout<< arrElement[i] << " ";
+    }
+}
+
+// create function CountCheckElementRepeated
+int CountCheckElementRepeated(int arrElement[100], int& CheckedNumber,int& Number) {
+    int i = 0,count=0;
+    for (i = 0; i < Number; i++) {
+        if (arrElement[i] == CheckedNumber)
+        {
+            count = count + 1;
+        }
+    }
+    return count;
+}
+// create function PrintRepetedCheckNumber
+void PrintRepetedCheckNumber(int CheckedNumber) {
+    int arrElement[100], Number;
+    int count = CountCheckElementRepeated(arrElement,Number, CheckedNumber);
+    cout << "Count = "<<count << endl;
+    if (count == 1)
+        cout << endl << CheckedNumber << " is repeated " << count << " Time"<<endl;
+    else
+        cout << endl << CheckedNumber << " is repeated " << count << " Time(s)"<<endl;
+}
+// main
+int main()
+{
+    // declared all variables
+    int arrElement[100] = {};
+    int Number= ReadNumberOfElements("Enter You number : ");
+
+    //seeds the random number generator in c++ ,called only once 
+    srand((unsigned)time(NULL));
+
+    // call all functions
+    ReadElemntsOfArray(Number,arrElement);
+    int CheckedNumber = ReadNumberOfElements("Enter the Number you want to check : ");
+    PrintElementsOfArray(arrElement, Number);
+    PrintRepetedCheckNumber(CheckedNumber);
+    return 0;
+}
+
