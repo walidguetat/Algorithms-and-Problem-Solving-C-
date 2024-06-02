@@ -1,0 +1,134 @@
+
+
+#include<iostream>
+#include<string>
+#include<cstdlib>
+using namespace std;
+// create all functions
+
+// create function ReadNumberOfElements
+int ReadNumberOfElements(string message) {
+    int NumberOfElements = 0;
+    do {
+        cout << message;
+        cin >> NumberOfElements;
+        cout << endl;
+    } while (NumberOfElements <= 0);
+    return NumberOfElements;
+}
+
+//create function RandomNumber
+int RandomNumber(int From, int To) {
+    int randNum = rand() % (To - From + 1) + From;
+    return randNum;
+}
+
+// create function ReadArray
+void ReadArray(int arrElementOne[100], int Length, string message) {
+    cout << endl << message << endl;
+    for (int i = 1; i <= Length; i++) {
+        int nb = RandomNumber(1, 100);
+        arrElementOne[i] = nb;
+        //cout << endl << "Key (" << i << ") = " << arrElementOne[i] << endl;
+        cout << endl;
+    }
+}
+
+// create function PrintElementsOfArray
+void PrintElementsOfArray(int arrElementOne[100], int& Number, string message) {
+    int i = 0;
+    cout << message;
+    for (i = 0; i < Number; i++) {
+        cout << arrElementOne[i] << "  ";
+    }
+    cout << endl;
+}
+// call function max
+int MaxSizeRandomNumber(int arrElement[100], int Length) {
+    int max = 0;
+    for (int i = 0; i < Length; i++) {
+        if (arrElement[i] > max)
+        {
+            max = arrElement[i];
+        }
+    }
+    return max;
+}
+// create function MinSizeRandomNumber
+int MinSizeRandomNumber(int arrElement[100], int Length) {
+    int Min = arrElement[0];
+    for (int i = 0; i < Length; i++) {
+        if (arrElement[i] < Min)
+        {
+            Min = arrElement[i];
+        }
+    }
+    return Min;
+}
+
+// create function GetIndexOfNumber
+int GetIndexOfNumber(int arrElementOne[100], int& Number, int& SearchNumber) {
+    int index = 0;
+    int max = MaxSizeRandomNumber(arrElementOne, Number);
+    int min = MinSizeRandomNumber(arrElementOne, Number);
+    if (SearchNumber<min || SearchNumber>max)
+    {
+        index = -1;
+    }
+    else
+    {
+        for (int i = 0; i < Number; i++) {
+            if (arrElementOne[i] == SearchNumber)
+            {
+                index = i;
+                //cout << "valeur de " << i << endl;
+            }
+       
+        }
+    }
+    return index;
+}
+
+// create function GetOrderOfNumber
+void GetOrderOfNumber(int index) {
+    int order = 0;
+    if (index == -1)
+    {
+        cout << "The number is not found : -( "<<endl;
+        exit;
+    }
+    else
+    {
+        cout <<endl<< "The number found at position : "<< index << endl;
+        order = index + 1;
+        cout << endl << "The number found its order : " << order << endl;
+    }
+    //return order;
+}
+
+// main
+int main()
+{
+    // declared all variables
+    int arrElementOne[100] = {};
+    string arrElementTwo[100] = {};
+    string arrElementThree[100] = {};
+
+    int Number = ReadNumberOfElements("Enter You number : ");
+
+    //seeds the random number generator in c++ ,called only once 
+    srand((unsigned)time(NULL));
+
+    // call all functions
+    ReadArray(arrElementOne, Number, "");
+    
+
+    PrintElementsOfArray(arrElementOne, Number, "Array 1 elements        : ");
+    int SearchNumber = ReadNumberOfElements("Please enter a number to search for ? ");
+    cout << "Number you are looking is for is : " << SearchNumber << endl;
+    GetOrderOfNumber(GetIndexOfNumber(arrElementOne, Number, SearchNumber));
+   
+
+    return 0;
+}
+
