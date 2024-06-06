@@ -1,0 +1,166 @@
+
+
+#include<iostream>
+#include<Windows.h>
+#include<string>
+#include<cstdlib>
+using namespace std;
+// create all functions
+
+//create function RandomNumber
+int RandomNumber(int From, int To) {
+    int randNum = rand() % (To - From + 1) + From;
+    return randNum;
+}
+
+// create function ReadNumberOfElements
+int ReadNumberOfElements(string message) {
+    int NumberOfElements;
+    do {
+        cout << message;
+        cin >> NumberOfElements;
+        cout << endl;
+    } while (NumberOfElements < 1 || NumberOfElements > 10);
+    return NumberOfElements;
+}
+
+// create function GetYourChoice
+int GetYourChoice(string message) {
+    int YourCooice;
+    do {
+        cout << message;
+        cin >> YourCooice;
+        cout << endl;
+    } while (YourCooice < 1 || YourCooice >3);
+    return YourCooice;
+}
+
+// create function PrintCoice
+void PrintChoice(int& choice,string message) {
+    cout << endl << message << choice << endl;
+}
+
+// create function Beep
+void Beep() {
+    cout << "\a";
+}
+
+// create  all functions  GetWinners
+int GetWinnersPlayer(int& a) {
+    return a;
+}
+
+int GetWinnersComputer() {
+    int count=0;
+    count++;
+    return count;
+}
+
+int GetWinnersNull() {
+    int count=0;
+    count++;
+    return count;
+}
+
+// create function GetRound
+void GetRound(int& indexOfRound) {
+    int a = 0, b = 0, c = 0;
+    cout << endl << "Round [ " << indexOfRound << " ] begins:" << endl;
+    int choicePlayer1 =GetYourChoice("Your choice  : [ 1 ] : Stone , [ 2 ] : Paper , [ 3 ] : Scissors  ?  ");
+    int choiceComputerPlayer = RandomNumber(1, 3);
+    cout <<endl<< "______________________ Round [ " << indexOfRound << " ] ______________________" << endl;
+    PrintChoice(choicePlayer1,"Player 1 choice : ");
+    PrintChoice(choiceComputerPlayer, "Computer choice : ");
+    if (choicePlayer1 > choiceComputerPlayer)
+    {
+        system("color 20"); // Green background white text.
+        Beep();
+        a++;
+        
+        cout << endl << "Round Winner  :  [ Player 1 ] " << endl;
+    }
+    else if (choicePlayer1 < choiceComputerPlayer)
+    {
+        system("color 40"); // Red background white text.
+        Beep();
+        b++;
+        GetWinnersComputer();
+        cout << endl << "Round Winner  :  [ Computer ] " << endl;
+    }
+    else
+    {
+        system("color 60"); // Yellow background white text.
+        Beep();
+        c++;
+        GetWinnersNull();
+        cout << endl << "Round Winner  :  [ No Winner ] " << endl;
+    }
+    GetWinnersPlayer(a);
+
+        
+    cout <<endl<< "______________________________________________________________________________" << endl;
+}
+
+
+// create function GameOver
+void GameOver(int& Number) {
+    int a;
+    cout << endl << "----------------------------------------------------" << endl;
+    cout << endl << "                  +++ Game Over +++                 " << endl;
+    cout << endl << "----------------------------------------------------" << endl;
+    cout << endl << "   -----------------[Game Results]---------------" << endl;
+    cout << endl << "   Game Rounds        : " <<Number<< endl;
+    cout << endl << "   Player 1 won times : " <<GetWinnersPlayer(a)<< endl;
+    cout << endl << "   Computer won times : " <<GetWinnersComputer()<< endl;
+    cout << endl << "   Draw times         : " <<GetWinnersNull()<< endl;
+    if(GetWinnersPlayer(a)>GetWinnersComputer())
+        cout << endl << "   Finnal Winner      : Player 1 " << endl;
+    else  if (GetWinnersPlayer(a) < GetWinnersComputer())
+        cout << endl << "   Finnal Winner      : Computer " << endl;
+    else
+        cout << endl << "   Finnal Winner      : No Winner " << endl;
+
+    cout << endl << "   ----------------------------------------------" << endl;
+}
+
+// create function GetAllRoundes
+void GetAllRounds(int& NumberOfRound) {
+    for (int i = 1; i <= NumberOfRound; i++) {
+        GetRound(i);
+    }
+}
+
+
+
+
+// main
+int main()
+{
+    // declared all variables
+    string message;
+    int yes = 0;
+    //seeds the random number generator in c++ ,called only once 
+    srand((unsigned)time(NULL));
+
+    // call all functions
+    while (yes != 1) {
+        int Number = ReadNumberOfElements("How Many rounds [ 1  To  10 ] ?  ");
+        GetAllRounds(Number);
+        GameOver(Number);
+        cout << endl << "press [0] : Exit or press [1] : New Game  : ";
+        cin >> yes;
+        if (yes == 1)
+        {
+            system("cls");
+            int Number = ReadNumberOfElements("How Many rounds [ 1  To  10 ] ?  ");
+            GetAllRounds(Number);
+            GameOver(Number);
+        }
+        else
+        {
+            //system("cls");
+            yes != 0;
+        }
+    } ;
+    return 0;
+}

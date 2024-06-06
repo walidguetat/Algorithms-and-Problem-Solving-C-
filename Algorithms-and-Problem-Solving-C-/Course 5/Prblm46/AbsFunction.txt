@@ -1,0 +1,61 @@
+
+
+#include<iostream>
+#include<string>
+#include<cstdlib>
+using namespace std;
+// create all functions
+
+// create function ReadNumberOfElements
+int ReadNumberOfElements(string message) {
+    int NumberOfElements;
+    do {
+        cout << message;
+        cin >> NumberOfElements;
+        cout << endl;
+    } while (NumberOfElements == 0);
+    return NumberOfElements;
+}
+
+//create function RandomNumber
+int RandomNumber(int From, int To) {
+    int randNum = rand() % (To - From + 1) + From;
+    return randNum;
+}
+
+// create function MyAbs
+
+int MyAbs(int& Number) {
+    if (Number < 0)
+        return Number = (-Number);
+    else
+        return Number;
+}
+
+// create function PrintAbs
+void PrintAbs(int abs) {
+    cout <<"My Abs result : "<< abs << endl;
+}
+
+// create print c++ ABS() function
+void PrintCpp(int Number) {
+    cout << "C++ abs result : " << endl<<abs(Number) << endl;
+}
+
+// main
+int main()
+{
+    // declared all variables
+    string message;
+
+    //seeds the random number generator in c++ ,called only once 
+    srand((unsigned)time(NULL));
+
+    // call all functions
+    int Number = ReadNumberOfElements("Enter your Number : ");
+    
+    PrintAbs(MyAbs(Number));
+    PrintCpp(Number);
+    return 0;
+}
+

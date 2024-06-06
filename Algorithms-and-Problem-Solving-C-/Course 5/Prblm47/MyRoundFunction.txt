@@ -1,0 +1,79 @@
+
+
+#include<iostream>
+#include<string>
+#include<cstdlib>
+using namespace std;
+// create all functions
+
+// create function ReadNumberOfElements
+double ReadNumberOfElements(string message) {
+    double NumberOfElements;
+    do {
+        cout << message;
+        cin >> NumberOfElements;
+        cout << endl;
+    } while (NumberOfElements ==0);
+    return NumberOfElements;
+}
+
+//create function RandomNumber
+//double RandomNumber(double From, double To) {
+//    double randNum = rand() % (To - From + 1) + From;
+//    return randNum;
+//}
+
+// create function MyRound
+
+double MyRound(double& Number) {
+    double remainder = 0;
+    double n=(int)Number;
+    remainder =(double)Number-(double)n;
+    cout << "remainder : " << remainder<< endl;
+    if (Number < 0)
+    {
+        if (remainder >= -0.5)
+        {
+            return n ;
+        }
+        else
+        {
+            return n =n + 1;
+        }
+    }
+        if (remainder>=0.5)
+        {
+            return n=n + 1;
+        }
+        else
+        {
+            return n;
+        }
+}
+
+// create function PrdoubleloatRound
+void PrdoubleloatRound(double Round) {
+    cout << "My Round result : " << Round << endl;
+}
+
+// create Prdoubleloat c++ Round() function
+void PrdoubleloatCpp(double Number) {
+    cout << "C++ Round result : " << round(Number) << endl;
+}
+
+// main
+int main()
+{
+    // declared all variables
+    string message;
+
+    //seeds the random number generator in c++ ,called only once 
+    srand((unsigned)time(NULL));
+
+    // call all functions
+    double Number = ReadNumberOfElements("Enter your Number : ");
+
+    PrdoubleloatRound(MyRound(Number));
+    PrdoubleloatCpp(Number);
+    return 0;
+}

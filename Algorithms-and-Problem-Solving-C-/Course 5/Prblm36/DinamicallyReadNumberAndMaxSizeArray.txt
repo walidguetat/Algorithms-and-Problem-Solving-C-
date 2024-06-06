@@ -1,0 +1,112 @@
+
+
+#include<iostream>
+#include<string>
+#include<cstdlib>
+using namespace std;
+// create all functions
+
+
+
+// create function ReadNumberOfElements
+int ReadNumberOfElements(string message) {
+    int NumberOfElements;
+    do {
+        cout << message;
+        cin >> NumberOfElements;
+        cout << endl;
+    } while (NumberOfElements <= 0);
+    return NumberOfElements;
+}
+
+
+
+// create function ReadNumberOfElements
+bool ReadYesOrNo(string message) {
+    bool YesOrNo = false;
+    int arrElementOne[100];
+     do{
+        cout << message;
+        cin >> YesOrNo;
+        cout << endl;
+        if (YesOrNo == 0)
+        {     
+            return YesOrNo;
+           // exit(1);
+        }
+    }while (YesOrNo != true);
+    return YesOrNo;
+}
+
+// create function AddMoreNumbers
+int AddMoreNumbers(int arrElementOne[100]) {
+    int Lenght = 0;
+    bool YesOrNo = true;
+    do {
+
+        int Number = ReadNumberOfElements("Please enter a number ?  ");
+
+        YesOrNo = ReadYesOrNo("Do you want to add more numbers ? [0] : No , [1] : Yes  ? ");
+        if (YesOrNo == 1)
+        {
+            arrElementOne[Lenght + 1] = Number;
+            Lenght = Lenght + 1;
+
+        }
+    } while (YesOrNo != false);
+    return Lenght;
+}
+
+//create function RandomNumber
+int RandomNumber(int From, int To) {
+    int randNum = rand() % (To - From + 1) + From;
+    return randNum;
+}
+
+// create function ReadArray
+void ReadArray(int arrElementOne[100], int Length, string message) {
+    cout << endl << message << endl;
+    for (int i = 1; i <= Length; i++) {
+        int nb = RandomNumber(1, 100);
+        arrElementOne[i] = nb;
+        //cout << endl << "Key (" << i << ") = " << arrElementOne[i] << endl;
+        cout << endl;
+    }
+}
+
+// create function PrintElementsOfArray
+void PrintElementsOfArray(int arrElementOne[100], int& Number) {
+    int i = 0;
+    for (i = 0; i < Number; i++) {
+        cout << arrElementOne[i] << "  ";
+    }
+    cout << endl;
+}
+
+// main
+int main()
+{
+    // declared all variables
+    int arrElementOne[100] = {};
+    string message;
+   
+    //int Number = ReadNumberOfElements("Enter You number : ");
+
+    int Number = AddMoreNumbers(arrElementOne);
+    bool Yes = ReadYesOrNo("");
+    if (Yes == 0)
+    {
+        cout << endl << "Lenght is : " << Number << endl;
+        cout << endl << "Array of elements : ";
+        PrintElementsOfArray(arrElementOne, Number);
+        exit(1);
+    }
+    //seeds the random number generator in c++ ,called only once 
+    srand((unsigned)time(NULL));
+
+    // call all functions
+    
+   
+    return 0;
+}
+

@@ -1,0 +1,103 @@
+
+
+#include<iostream>
+#include<string>
+#include<cstdlib>
+using namespace std;
+// create all functions
+
+// create function ReadNumberOfElements
+int ReadNumberOfElements(string message) {
+    int NumberOfElements = 0;
+    do {
+        cout << message;
+        cin >> NumberOfElements;
+        cout << endl;
+    } while (NumberOfElements <= 0);
+    return NumberOfElements;
+}
+
+//create function RandomNumber
+int RandomNumber(int From, int To) {
+    int randNum = rand() % (To - From + 1) + From;
+    return randNum;
+}
+
+// create function GetRandomSubkeys
+string GetRandomSubkeys() {
+    string SubKey = "";
+    for (int i = 1; i <= 4; i++) {
+        SubKey += char(RandomNumber(65, 90));
+    }
+    return SubKey;
+}
+
+// create function GetRandomKey
+string GetRandomKey() {
+    string Key = "";
+    for (int i = 1; i <= 4; i++) {
+        Key += GetRandomSubkeys() + "-";
+        if (i == 4)
+        {
+            Key += GetRandomSubkeys();
+        }
+    }
+    return Key;
+}
+
+
+// create function ReadArray
+void ReadArray(string arrElementOne[100], int Length, string message) {
+    cout << endl << message << endl;
+    for (int i = 1; i <= Length; i++) {
+        //int nb = RandomNumber(1, 100);
+        arrElementOne[i] = GetRandomKey();
+        cout << endl << "Key (" << i << ") = " << arrElementOne[i] << endl;
+        cout << endl;
+    }
+}
+
+// create function PrintElementsOfArray
+void PrintElementsOfArray(string arrElementOne[100], int& Number, string message) {
+    int i = 0;
+    cout << message;
+    for (i = 1; i <= Number; i++) {
+        cout <<endl<<"key [ "<<i<<" ] : " << arrElementOne[i] << endl;
+    }
+    cout << endl;
+}
+
+// create function CopyArray
+void CopyArray(string arrElement[100], string arrElementCopy[100], int& Number) {
+    for (int i = 1; i <= Number; i++) {
+        arrElementCopy[i] = arrElement[Number - i + 1];
+    }
+}
+
+
+
+
+// main
+int main()
+{
+    // declared all variables
+    string arrElementOne[100] = {};
+    string arrElementTwo[100] = {};
+    string arrElementThree[100] = {};
+
+    int Number = ReadNumberOfElements("Enter You number : ");
+
+    //seeds the random number generator in c++ ,called only once 
+    srand((unsigned)time(NULL));
+
+    // call all functions
+    ReadArray(arrElementOne, Number, "Read all elements of array 1 :");
+    //ReadArray(arrElementTwo, Number, "Read all elements of array 2 :");
+
+    PrintElementsOfArray(arrElementOne, Number, "Keys elements before Reverse                       : ");
+    CopyArray(arrElementOne, arrElementTwo, Number);
+    PrintElementsOfArray(arrElementTwo, Number, "Keys elements After Reverse                        : ");
+
+    return 0;
+}
+
